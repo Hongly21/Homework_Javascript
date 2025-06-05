@@ -1,0 +1,400 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-color: #3f51b5; /* A vibrant blue for primary actions */
+    --primary-hover-color: #303f9f;
+    --primary-active-color: #283593;
+    --secondary-color: #f44336; /* A red for destructive actions */
+    --secondary-hover-color: #d32f2f;
+    --secondary-active-color: #c62828;
+    --accent-color: #ff9800; /* An orange for highlights */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --border-color: #e0e0e0;
+    --background-light: #f5f5f5; /* Light grey for subtle backgrounds */
+    --background-white: #fff;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+    --spacing-unit: 1rem; /* 16px */
+    --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- General Body and Typography --- */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes full viewport height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-hover-color);
+    margin-top: 0;
+    margin-bottom: var(--spacing-unit);
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --- Header Styling --- */
+.Header-container {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.Header-container h1 {
+    color: var(--light-text-color);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.Header-container p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+/* --- Main Layout Container --- */
+.full-container {
+    display: flex; /* Use flexbox for side-by-side layout */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: calc(var(--spacing-unit) * 2); /* Space between left and right sections */
+    max-width: 1200px; /* Max width for the entire content */
+    margin: 0 auto calc(var(--spacing-unit) * 2); /* Center and add bottom margin */
+    padding: 0 var(--spacing-unit);
+    flex-grow: 1; /* Allows it to take up available vertical space */
+}
+
+/* --- Left Column (Input Form) --- */
+.full-container-left {
+    flex: 1; /* Allow left section to grow */
+    min-width: 300px; /* Minimum width before wrapping */
+    background-color: var(--background-white);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Space between form elements */
+}
+
+#input-container label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+#input-container h1 { /* Subject heading */
+    color: var(--primary-hover-color);
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#input-container input[type="text"],
+#input-container input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#input-container input[type="text"]:focus,
+#input-container input[type="number"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Softer focus glow */
+}
+
+#input-container input[type="text"]::placeholder,
+#input-container input[type="number"]::placeholder {
+    color: #999;
+}
+
+#btn {
+    display: block; /* Make the button take full width */
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: var(--spacing-unit);
+}
+
+#btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#btn:active {
+    background-color: var(--primary-active-color);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Right Column (Result Display) --- */
+.full-container-right {
+    flex: 2; /* Allow right section to grow more */
+    min-width: 400px; /* Minimum width before wrapping */
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 1.5); /* Space between tables */
+}
+
+#result-container {
+    background-color: var(--background-white);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow-x: auto; /* Enable horizontal scroll for table */
+    flex-grow: 1; /* Allow it to take up available vertical space */
+}
+
+#table-result {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: var(--spacing-unit);
+}
+
+#table-result th,
+#table-result td {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color); /* Add full borders for a grid look */
+    text-align: center;
+}
+
+#table-result th {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+}
+
+#table-result tr:first-child th:first-child { border-top-left-radius: var(--border-radius); }
+#table-result tr:first-child th:last-child { border-top-right-radius: var(--border-radius); } /* This won't work perfectly with rowspan */
+#table-result tr:last-child td:first-child { border-bottom-left-radius: var(--border-radius); }
+#table-result tr:last-child td:last-child { border-bottom-right-radius: var(--border-radius); }
+
+
+#table-result tr:nth-child(even) {
+    background-color: #fcfcfc; /* Very light background for even rows */
+}
+
+#table-result tbody tr:hover {
+    background-color: #e8eaf6; /* Lighter blue on hover */
+    transition: background-color 0.2s ease;
+}
+
+#table-result #t_result { /* Specific styling for the overall result cell */
+    font-size: 1.8rem;
+    font-weight: bold;
+    vertical-align: middle;
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border: none; /* Remove border for aesthetic */
+}
+
+.btn1 {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn1 input[type="button"] {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn1 input[value="Clear"] {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+}
+
+.btn1 input[value="Clear"]:hover {
+    background-color: var(--secondary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn1 input[value="Clear"]:active {
+    background-color: var(--secondary-active-color);
+    transform: translateY(0);
+}
+
+.btn1 input[value="Save"] {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.btn1 input[value="Save"]:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn1 input[value="Save"]:active {
+    background-color: var(--primary-active-color);
+    transform: translateY(0);
+}
+
+/* --- Result Total Table --- */
+#result-total-table {
+    background-color: var(--background-white);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow-x: auto; /* Enable horizontal scroll for table */
+}
+
+#result-total-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#result-total-table th,
+#result-total-table td {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+#result-total-table th {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+}
+
+#result-total-table tr:first-child th:first-child { border-top-left-radius: var(--border-radius); }
+#result-total-table tr:first-child th:last-child { border-top-right-radius: var(--border-radius); }
+#result-total-table tr:last-child td:first-child { border-bottom-left-radius: var(--border-radius); }
+#result-total-table tr:last-child td:last-child { border-bottom-right-radius: var(--border-radius); }
+
+
+#result-total-table tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+#result-total-table tbody tr:hover {
+    background-color: #e8eaf6;
+    transition: background-color 0.2s ease;
+}
+
+/* Specific styling for total and grade cells */
+#result-total-table td:nth-child(3), /* Total Score column */
+#result-total-table td:nth-child(4) { /* Grade of Total column */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .full-container {
+        flex-direction: column; /* Stack columns on medium screens */
+        padding: 0 var(--spacing-unit);
+    }
+
+    .full-container-left,
+    .full-container-right {
+        min-width: unset; /* Remove min-width when stacked */
+        width: 100%; /* Take full width */
+    }
+
+    .Header-container h1 {
+        font-size: 2rem;
+    }
+
+    .Header-container p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .Header-container {
+        padding: var(--spacing-unit);
+    }
+
+    .Header-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .Header-container p {
+        font-size: 0.9rem;
+    }
+
+    .full-container-left,
+    #result-container,
+    #result-total-table {
+        padding: var(--spacing-unit);
+        border-radius: 0; /* Remove border-radius for edge-to-edge on small screens */
+    }
+
+    #input-container h1 {
+        font-size: 1.5rem;
+    }
+
+    #input-container input[type="text"],
+    #input-container input[type="number"] {
+        padding: 0.6rem;
+        font-size: 0.95rem;
+    }
+
+    #btn {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+    }
+
+    #table-result th,
+    #table-result td,
+    #result-total-table th,
+    #result-total-table td {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    #table-result #t_result {
+        font-size: 1.5rem;
+    }
+
+    .btn1 {
+        flex-direction: column; /* Stack clear/save buttons */
+        gap: 0.8rem;
+    }
+
+    .btn1 input[type="button"] {
+        width: 100%;
+        padding: 0.7rem 1rem;
+    }
+}

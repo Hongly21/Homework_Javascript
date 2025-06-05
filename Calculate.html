@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            border: solid 3px;
+            background-color: rgb(210, 174, 174);text-align: center;
+        }
+        #result{
+            width: 100px;
+            height: 30px;
+            background-color: #ebebec;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>Num1:
+            <input type="text" id="number1" placeholder="Enter number">
+        </p> 
+       
+        <p>Num2:
+            <input type="text" id="number2" placeholder="Enter number">
+        </p>
+        <p>Calculaor</p>
+        <input type="button" value="+" onclick="sum()">
+        <input type="button" value="-" onclick="sub()">
+        <input type="button" value="*" onclick="mul()">
+        <input type="button" value="/" onclick="div()">
+        <input type="button" value="%" onclick="mod()">
+
+        <p>Result:</p>
+        <div id="result"></div>
+        
+    </div>
+    <script>
+        function sum(){
+            var num1=document.getElementById('number1').value
+            var num2=document.getElementById('number2').value
+            var result=parseInt(num1)+parseInt(num2)
+            document.getElementById('result').innerHTML=result
+        }
+
+        function sub(){
+            var num1=document.getElementById('number1').value
+            var num2=document.getElementById('number2').value
+            var result=parseInt(num1)-parseInt(num2)
+            document.getElementById('result').innerHTML=result
+        }
+        function mul(){
+            var num1=document.getElementById('number1').value
+            var num2=document.getElementById('number2').value
+            var result=parseInt(num1)*parseInt(num2)
+            document.getElementById('result').innerHTML=result
+        }
+        function div(){
+            var num1=document.getElementById('number1').value
+            var num2=document.getElementById('number2').value
+            var result=parseInt(num1)/parseInt(num2)
+            document.getElementById('result').innerHTML=result
+        }
+        function mod(){
+            var num1=document.getElementById('number1').value
+            var num2=document.getElementById('number2').value
+            var result=parseInt(num1)%parseInt(num2)
+            document.getElementById('result').innerHTML=result
+        }
+    </script>
+    
+</body>
+</html>
