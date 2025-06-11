@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+        }
+        .container{
+            width: 70%;
+            overflow: hidden;
+            /* background-color: rgb(55, 89, 78); */
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+
+        }
+        .box-item{
+            width: 24%;
+            height: 350px;
+            background-color: rgb(207, 198, 198);
+
+        }
+        img{
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+        .title{
+            text-align: center;
+            line-height: 15px;
+        }
+        .title h3{
+            margin: 10px;
+            padding: 0px;
+        }
+        .title p{
+            margin: 5px;
+            padding: 0px;
+        }
+        .title button{
+            width: 100px;
+            height: 30px;
+            background-color: rgb(23, 22, 73);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-top: 40px;
+        }
+        .slide-container{
+            width: 280px;
+            height: 714px;
+            background-color: rgb(55, 89, 78);
+            position: absolute;
+            transform: translate(1450px, -430px);
+            z-index: 1;
+            padding: 10px;
+        }
+        #closebtn{
+            width: 30px;
+            height: 30px;
+            background-color: rgb(23, 22, 73);
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border-radius: 50%;
+            margin: 10px;
+            color: white;
+            margin-top: 0px;
+            margin-left: 5px;
+            margin-bottom: 20px;
+        }
+        .box-item-slide{
+            width: 100%;
+            /* margin: auto; */
+            margin-bottom: 5px;
+            height: 150px;
+            background-color: rgb(148, 116, 116);
+        }
+        .box-item-slide .image{
+            width: 50%;
+            height: 100%;
+            float: left;
+            background-color: aqua;
+        }
+        .box-item-slide .title1{
+            width: 50%;
+            height: 100%;
+            float: left;
+            background-color: rgb(154, 138, 138);
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+        .box-item-slide .title1 h3{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box-item-slide .title1 p{
+            margin: 5px;
+            padding: 0px;
+        }
+        .box-item-slide .title1 button{
+            width: 100px;
+            height: 30px;
+            background-color: rgb(23, 22, 73);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        .box-item-slide img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .fa-cart-shopping {
+             font-size: 24px;
+             color: #ff6600;
+             margin-left: 210px;
+             margin-top: 15px;
+            position: relative;
+         }
+        .total-buying {
+            position: absolute;
+            background-color: rgb(150, 183, 153);
+            color: rgb(22, 22, 22);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -10px;
+            right: -10px;
+            font-size: 0.7em;
+            z-index: 1;
+        } 
+
+
+    </style>
+</head>
+<body>
+    <i class="fa-solid fa-cart-shopping">
+        <div class="total-buying"></div>
+    </i>
+    <div class="container">
+        <div class="box-item">
+            <img src="2.jfif" alt="">
+            <div class="title">
+                <h3>Title 1</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+          
+        </div>
+                <div class="box-item">
+            <img src="3.webp" alt="">
+            <div class="title">
+                <h3>Title 2</h3>
+                <p>Consectetur adipiscing</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+          
+        </div>
+                <div class="box-item">
+            <img src="4.avif" alt="">
+            <div class="title">
+                <h3>Title 3</h3>
+                <p>Dolor sit amet consectetur</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+          
+        </div>
+               <div class="box-item">
+            <img src="3.webp" alt="">
+            <div class="title">
+                <h3>Title 4</h3>
+                <p>Consectetur adipiscing</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+          
+        </div>
+    </div>
+    <div class="slide-container">
+        <input type="button" value="X" id="closebtn">
+            <!-- <div class="box-item-slide">
+               <div class="image">
+                <img src="2.jfif" alt="">
+                </div>
+               <div class="title1">
+                <h3>Title 1</h3>
+                <p>Lorem ipsum dolor.</p>
+                <button class="remove-item">Remove</button>
+               </div>
+        
+             </div> -->
+    
+
+    <script>
+        $(document).ready(function(){
+
+            $('.box-item').each(function(index, element){
+                $(element).click(function(){
+                    var image=$(this).find('img').attr('src');
+                    var title=$(this).find('.title h3').text();
+                    var dcs=$(this).find('.title p').text();
+                    var slideItem=`
+                    <div class="box-item-slide">
+                        <div class="image">
+                            <img src="${image}"></div>
+                            <div class="title1">
+                                <h3>${title}</h3>
+                                <p>${dcs}</p>
+                                <button class="remove-item">${removeitem()}</button></div>
+                            </div>`;
+                    $('.slide-container').append(slideItem);
+                })
+            });
+            $('.add-to-cart').click(function(){
+                $('.slide-container').css({
+                    'transform': 'translate(1100px, -430px)',
+                    'transition': '0.5s'
+
+                });
+                
+                
+            });
+            $('.fa-cart-shopping').click(function(){
+                $('.slide-container').css({
+                    'transform': 'translate(1100px, -430px)',
+                    'transition': '0.5s'
+
+                });
+                
+                
+            });
+            $('#closebtn').click(function(){
+                $('.slide-container').css({
+                    'transform': 'translate(1400px, -430px)',
+                    'transition': '0.5s'
+                });
+            });
+            // remove item function
+            $(document).on('click', '.remove-item', function(){
+                $(this).closest('.box-item-slide').remove();
+                totalCount--;
+                if(totalCount < 0) {
+                    totalCount = 0; 
+                }
+                $('.total-buying').text(totalCount);
+            });
+            function removeitem(){
+                return 'Remove';
+            }
+
+            //total buying count
+            var totalCount = 0;
+            $('.add-to-cart').click(function(){
+                totalCount++;
+                $('.total-buying').text(totalCount);
+            });
+          
+
+        });
+  
+        
+
+    </script>
+    
+</body>
+</html>
