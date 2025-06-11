@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 750px;
+            height: 600px;
+            margin: auto;
+            border: solid 3px;
+           
+
+        }
+        #box1{
+            width: 24%;
+            height: 100%;
+            /* background-color: red; */
+            float: left;
+            overflow: hidden;
+            margin-right: 1%;
+            border: solid 1px;
+      
+        }
+        #box1:last-child{
+            margin-right: 0px;
+        }
+        #header{
+            width: 100%;
+            height: 30%;
+            /* background-color: blue; */
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        #body{
+            width: 50%;
+            height: 50%;
+            /* background-color: aqua; */
+            margin: auto;
+            margin-top: 50px;
+            border: solid rgb(14, 14, 15);
+            overflow: hidden;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            
+
+        }
+        img:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <!-- the first way -->
+
+
+    <!-- <div id="box">
+        <div id="header">
+            <div id="box1">
+                <img src="img/1.jfif" alt="" onclick="Changeimg()">
+            </div>
+            <div id="box1">
+                <img src="img/2.jfif" alt="" onclick="Changeimg1()">
+            </div>
+            <div id="box1">
+                <img src="img/3.jfif" alt="" onclick="Changeimg2()">
+            </div>
+            <div id="box1">
+                <img src="img/4.jfif" alt="" onclick="Changeimg3()">
+            </div>
+        </div>
+        <div id="body">
+            <img src="img/1.jfif" alt="" id="image1">
+        </div>
+
+    </div>
+
+    <script>
+        function Changeimg(){
+            document.getElementById('image1').setAttribute('src','img/1.jfif')
+        }
+        function Changeimg1(){
+            document.getElementById('image1').setAttribute('src','img/2.jfif')
+        }
+        function Changeimg2(){
+            document.getElementById('image1').setAttribute('src','img/3.jfif')
+        }
+        function Changeimg3(){
+            document.getElementById('image1').setAttribute('src','img/4.jfif')
+        }
+    </script> -->
+
+     
+<!-- 
+the second way for using function that has parameter -->
+<div id="box">
+    <div id="header">
+        <div id="box1">
+            <img src="img/1.jfif" alt="" onclick="Changeimg('img/1.jfif')">
+        </div>
+        <div id="box1">
+            <img src="img/2.jfif" alt="" onclick="Changeimg('img/2.jfif')">
+        </div>
+        <div id="box1">
+            <img src="img/3.jfif" alt="" onclick="Changeimg('img/3.jfif')">
+        </div>
+        <div id="box1">
+            <img src="img/4.jfif" alt="" onclick="Changeimg('img/4.jfif')">
+        </div>
+    </div>
+    <div id="body">
+        <img src="img/1.jfif" alt="" id="image1">
+    </div>
+</div>
+
+<script>
+     function Changeimg(ImageURL){
+            document.getElementById('image1').setAttribute('src',ImageURL)
+        }
+</script>
+    
+</body>
+</html>
